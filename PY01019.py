@@ -1,25 +1,51 @@
-from math import *
+import sys
+from math import isqrt, log, lcm
 
-def check(s1, s2):
-    n = len(s1)
-    for i in range(1, n):
-        a = abs(ord(s1[i]) - ord(s1[i - 1]))
-        b = abs(ord(s2[i]) - ord(s2[i - 1]))
+input = sys.stdin.readline
 
-        if(a != b):
-            print("NO")
-            return
+T = int(input())
 
-    print("YES")
 
-def solve():
-    T = int(input())
+def sang():
+    N = 1000005
 
-    for _ in range(T):
-        s1 = input()
-        s2 = s1[::-1]
+    isPrime = [True] * N
+    isPrime[0] = isPrime[1] = False
 
-        check(s1, s2)
+    for i in range(2, isqrt(N)):
+        if (isPrime[i]):
+            for j in range(i * i, N, i):
+                isPrime[j] = False
+    Prime = []
+    for i in range(2, N):
+        if isPrime[i]:
+            Prime += [i]
 
-if __name__ == "__main__":
-    solve()
+    return Prime
+
+
+Prime = sang()
+for _ in range(T):
+    N = int(input())
+    res = 1
+
+    ans = []
+
+    for x in Prime:
+        if x > N:
+            break
+        k = 1
+        cnt = 0
+        while k <= N:
+            k *= x
+            cnt += 1
+        k //= x
+
+        cnt -= 1
+        res *= k
+    # print(ans)
+    for c in str(res)[::-1]:
+        if (c != "0"):
+            print(c)
+            break
+
