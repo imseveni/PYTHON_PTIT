@@ -1,1 +1,0 @@
-{"name":"Local: PY01053","url":"d:\\CODE\\PYTHON_PTIT\\PY01053.py","tests":[{"id":1787665326374,"input":"2\n12341\n123456789123456789","output":"NO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CODE\\PYTHON_PTIT\\PY01053.py","group":"local","local":true}
