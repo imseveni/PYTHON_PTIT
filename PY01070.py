@@ -58,4 +58,4 @@ for _ in range(T):
                     found = True
                     break
 
-    
+    print("YES") if found == True else print("NO")
